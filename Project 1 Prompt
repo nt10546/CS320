@@ -1,0 +1,98 @@
+CS320
+
+Programming Assignment #1
+
+A first C program
+
+30 points.
+ 
+
+Due Date/Time
+
+The program is due in your edoras class account on Tuesday night, September 11th at midnight, hardcopy due in class the following day.  The name of your C program files must be  p1a.c and p1b.c.  These must be in the directory named p1 within your handin folder: ~/handin/p1/
+
+Carefully note the name of all directories.  Use lowercase for directories and program files. Your programs must compile on edoras with ANSI C (see compile command).
+
+The Assignment
+
+For this assignment, you will write two programs in C language. The programs will perform the same task and have identical input and output.  They will differ in how the input is obtained.  On the due date, you will submit printed copies of
+
+    p1a.c,
+    p1b.c,
+    and a one-sheet, one-side only analysis that includes (in the order given):
+        black box analysis
+        preconditions
+        postconditions
+        sample calculation
+
+The analysis must be general enough to pertain to both programs p1a and p1b.
+Requirements p1a.c
+
+Write a C program that calculates the time in minutes it takes to fill completely a rectangular swimming pool of uniform depth, given dimensions in feet (length, width, and height).  Assume water flows at a rate of 20 gallons per minute.  A cubic foot of water has 7.8 gallons. 
+
+Functions and Procedures
+
+Your program will consist of exactly three modules:
+
+main—This function has no input parameters, calls getDim() and calcTime(), and prints the result, and returns int.
+
+getDim—This procedure accepts the addresses of length, width, and height (in that order), reads in these values from the user (no prompt given to user), and returns void.
+
+calcTime()—This function receives the volume of the swimming pool, calculates the time it takes to fill the pool, and returns the result (a float).
+
+Header File
+
+For this assignment, your program should include only the standard library header files and <stdlib.h>:  No other #include directives are permitted in your p1a.c program file.
+
+Output:
+
+Your program will first print a title line, consisting of the assignment number, your class account, and your name, all on one line.  Print the output in the following form, substituting variable or constant values for words in italics:
+
+Example:
+
+Program #1, csscxxxx, Some Student
+
+Time to fill a swimming pool length by width by height with water
+input rate of inputRate gallons per minute is timeToFill minutes.
+
+Additional Requirements p1a.c
+
+    No error checking is required for this assignment.
+    You may assume data types are float values.
+    Your source code file will be compiled on edoras, as follows:
+    gcc -ansi -Wall -o p1a p1a.c
+    Your p1a.c program file must consist of exactly three functions/procedures.
+    Provide documentation at the top of the file that includes a program description, date, program name, class (CS320), and your name.
+
+Requirements p1b.c
+
+This C program computes exactly the same time in minutes as program p1a.c. 
+
+Functions and Procedures
+
+Your program will consist of exactly two modules:
+
+main—This function has four input parameters from the command line, calls calcTime(), prints the result, and returns int.  If the user does not provide four arguments on the command line, print a message: 
+
+Usage: p1b length width height
+
+then exit the program, returning int.
+
+calcTime()—same as p1a.c
+
+Header File
+
+For this assignment, your program should include only the standard library header files and <stdlib.h>:  No other #include directives are permitted in your p1b.c program file.
+
+Output:
+
+Your program will have identical output as program p1a.c
+
+Additional Requirements p1b.c
+
+    Error checking of number of inputs is required for this assignment.
+    You may assume data types are float values.
+    Your source code file will be compiled on edoras, as follows:
+    gcc -ansi -Wall -o p1b p1b.c
+    Your p1b.c program file must consist of exactly two functions.
+    Provide documentation at the top of the file that includes a program description, date, program name, class (CS320), and your name.
