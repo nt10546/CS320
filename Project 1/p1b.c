@@ -4,7 +4,7 @@
     *   swimming pool of uniform depth (in feet).
     *  CS320
     *  9/7/2019
-    *  @author  Nam Tran cssc0517 REDID 815922231
+    *  @author  Nam Tran 
     */
 
 /* Header Files */
