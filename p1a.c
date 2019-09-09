@@ -55,5 +55,5 @@ void getDim(float *length, float *width, float *height){
     * and calculates the time to fill the pool with water.
     * */
 float calcTime(float volume){
-    return volume/20;
+    return volume/20/7.8;
 }
