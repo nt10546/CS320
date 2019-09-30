@@ -5,7 +5,7 @@
      *    allowed to alter the header file "p2.h" in any way. They are also
      *    not allowed to use any square brackets "[]".
      *  CS320
-     *  Date
+     *  Date 9/29/2019
      *  @author  Nam Tran
      */
 
