@@ -6,7 +6,7 @@
      *    not allowed to use any square brackets "[]".
      *  CS320
      *  Date
-     *  @author  Nam Tran cssc0517
+     *  @author  Nam Tran
      */
 
 #include "p2.h"
