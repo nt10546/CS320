@@ -1,4 +1,4 @@
-# Program #3, Nam Tran
+# Program #3, cssc0517, Nam Tran
 # This program reads two matrices, A and B, from a text file, multiplies
 #   them and stores in matrix C. Then prints the contents of all
 #   three formatted matrices.
@@ -8,6 +8,7 @@
 #   3. mult_matrices(A,B,C)
 #   4. print_matrix(arr)
 # The program may not use the built-in array module
+# The program can only import sys
 
 import sys
 
@@ -25,11 +26,17 @@ import sys
 #
 # Print result contents
 def main():
-    #Printing title lines
+    # Printing title lines
     print("Program #3, cssc0517, Nam Tran\n")
 
-    if (len(sys.argv) != 2):
-        print("The correct format is python3 p3.py myInputFile.dat")
+    # Testing for correct number of arguments, and file existence
+    try:
+        if (len(sys.argv) != 2):
+            print("The correct format is python3 p3.py dataFileName")
+            sys.exit()
+        open(sys.argv[1])
+    except FileNotFoundError:
+        print("The correct format is python3 p3.py dataFileName")
         sys.exit()
 
     # Initializing empty arrays
@@ -39,7 +46,7 @@ def main():
 
     C = read_matrices(A, B)
 
-    # Printing contents of matrices
+    # Printing contents of matrices A, B, and C
     print("Matrix A contents:")
     print_matrix(A)
     print("Matrix B contents:")
