@@ -36,7 +36,7 @@ def main():
             sys.exit()
         open(sys.argv[1])
     except FileNotFoundError:
-        print("The correct format is python3 p3.py dataFileName")
+        print("The file \'" + sys.argv[1] + "\' was not found!")
         sys.exit()
 
     # Initializing empty arrays
