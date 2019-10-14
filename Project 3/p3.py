@@ -1,4 +1,4 @@
-# Program #3, cssc0517, Nam Tran
+# Program #3, Nam Tran
 # This program reads two matrices, A and B, from a text file, multiplies
 #   them and stores in matrix C. Then prints the contents of all
 #   three formatted matrices.
