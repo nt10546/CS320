@@ -25,7 +25,7 @@ int main (int argc, char **argv){
     }
     
 
-    printf("Program #1, cssc0517, Nam Tran\n");
+    printf("Program #1, Nam Tran\n");
 
     /* Converting char array elements to float */
     length = (float)atof(argv[1]);
