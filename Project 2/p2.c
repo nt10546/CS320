@@ -14,7 +14,7 @@
 int main(int argc, char **argv){
     
     /* Print the title line */
-    printf("\nProgram #2, cssc0517, Nam Tran\n\n");
+    printf("\nProgram #2, Nam Tran\n\n");
 
     /* Checking for correct number of arguments */
     if (argc!=2){
