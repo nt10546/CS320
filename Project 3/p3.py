@@ -27,7 +27,7 @@ import sys
 # Print result contents
 def main():
     # Printing title lines
-    print("Program #3, cssc0517, Nam Tran\n")
+    print("Program #3, Nam Tran\n")
 
     # Testing for correct number of arguments, and file existence
     try:
