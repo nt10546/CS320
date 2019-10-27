@@ -20,7 +20,7 @@ int main(void){
     float length, width, height, volume;
     float inputRate = 20;
 
-    printf("Program #1, cssc0517, Nam Tran\n");
+    printf("Program #1, Nam Tran\n");
 
     /*printf("Calling getDim function\n");*/
     getDim(&length, &width, &height);
