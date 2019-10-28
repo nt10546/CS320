@@ -4,15 +4,6 @@ Programming Assignment #1
 
 A first C program
 
-30 points.
- 
-
-Due Date/Time
-
-The program is due in your edoras class account on Tuesday night, September 11th at midnight, hardcopy due in class the following day.  The name of your C program files must be  p1a.c and p1b.c.  These must be in the directory named p1 within your handin folder: ~/handin/p1/
-
-Carefully note the name of all directories.  Use lowercase for directories and program files. Your programs must compile on edoras with ANSI C (see compile command).
-
 The Assignment
 
 For this assignment, you will write two programs in C language. The programs will perform the same task and have identical input and output.  They will differ in how the input is obtained.  On the due date, you will submit printed copies of
