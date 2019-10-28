@@ -1,10 +1,7 @@
 CS 320
 Programming Assignment #3
 Matrix Multiplication in Python
-40 points
-Due Date/Time:
-The program is due on Monday, October 14th at 4:00pm; hardcopy due in class at that time. The name of
-your program must be p3.py
+
 The Program:
 This assignment output is identical to Program 2 in C. For this assignment, you will multiply two matrices
 and print the result. If A is an m x n matrix, and B is an n x p matrix, then the product matrix C, which is A
