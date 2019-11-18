@@ -1,0 +1,176 @@
+Operator Overloading Lab
+The array construct in C is very efficient but also very dangerous for the unwary.
+For example, many novice programmers fall into the trap of declaring an array of
+100 elements and then try to access the element with index 100. Not only is this an
+error in C, but the language won't even alert the user when the mistake is made.
+C++ allows programmers to define safer and more flexible array constructs if they
+are willing to sacrifice some of C's runtime efficiency. The purpose of this lab is to
+see how this is done and to gain some experience in overloading operators.
+The heart of this assignment is a class that you will define called IntArray. With
+it, the user will be able to declare integer arrays of any size with automatic range
+checking of indices. The upper and lower indices can be any integer, positive or
+negative, rather than the fixed limits of 0 to SIZE-1. It will also be possible to
+assign entire arrays to each other, compare two arrays for equality and inequality,
+add two arrays, and output arrays using the overloaded << operator. For example:
+#include <iostream>
+#include "IntArray.h"
+using namespace std;
+int main() {
+IntArray a(10), w(10); // Ten elements, indexed 0 to 9
+IntArray b(-3, 6); // Ten elements, indexed -3 to 6
+IntArray c(6, 8); // Three elements, indexed 6 to 8
+IntArray d(5, 5); // Single element array, indexed at 5
+IntArray z; // Ten elements, indexed 0 to 9
+// high() and low() return largest and smallest legal indices
+for (int i = a.low(); i <= a.high(); ++i)
+a[i] = i * 10; // Access just like normal array
+// Output array contents. Note that you will overload
+// the << operator to do this.
+cout << a << endl;
+// The code for the overloaded << operator will look something
+// like this:
+for (int i = a.low(); i <= a.high(); i++)
+cout << "a[" << i << "] = " << a[i] << " ";
+// Similar code initializes b, c, and d.
+// Note that we will not be able to mimic the C style aggregate
+// initializer: int a[3] = { 1, 2, 3 };
+IntArray e(c); // e is a copy of c
+b = a; // b holds copy of a's elements,
+// but indices run from -3 to 6
+w = a + b; // sum two arrays into third array
+w += a; // sum two arrays into first array
+a[10] = 1; // Runtime error: illegal index
+// Print diagnostic and halt.
+b = c; // Runtime error: lengths different
+// Print diagnostic and simulate halt.
+if (a == d) // Elements compared. No run-time error
+cout << "TRUE" << endl; // if lengths don't match. != also works.
+else
+cout << "FALSE" << endl;
+}
+It's up to you to define the IntArray class, but it should fulfill the following
+requirements:
+ An IntArray may be declared in any of four ways:
+1) With a single integer giving the number of elements, in which case
+the indices will run from 0 to one less than the number of elements.
+2) With two integers, which will be taken as the lower and upper
+indices. It is an error for the first index to be greater than the
+second index, but having both indices the same specifies a valid,
+single element array.
+3) With no integers, which creates a ten element array whose indices
+run from 0 to 9.
+4) With another object of type IntArray. The new object will be a
+copy of the old one, with each entry and the index range duplicated.
+ Except in case 4, the initial array elements are undefined. Once an
+IntArray object has been created, its size cannot be changed, and each
+object should use just enough storage to hold its elements, plus a fixed
+amount of space for bookkeeping information.
+ Elements of an IntArray are accessed using the standard C style array
+indexing notation. If the index falls outside the legal range, an error
+message should be printed, and the program should simulate a halt.
+ IntArray objects may be assigned to each other if they have the same
+number of elements. The indices need not match, and the indices of the
+target object will not change; only the elements will be copied. If the sizes
+of objects being assigned don't match, an error message should be printed,
+and the program should simulate a halt.
+ Two IntArray objects can be compared using the == and != operators. If
+the arrays have the same number of elements and all the corresponding
+elements match, the objects are equal and the comparison operator (==)
+should return a non-zero value, even if their indices are different. Comparing
+IntArray objects with different number of elements is legal, and the result
+is always zero. The != operator should return zero whenever == would
+return non-zero, and vice versa.
+ Class IntArray should also overload the operators below. An error should
+be generated if the arrays are of a different size.
+[] - allows index range checking
++ - allows the sum of two arrays to be assigned to a third array
++= - allows the sum of two arrays to be assigned to the first array
+<< - allows the contents of an array to be output
+ The IntArray class should have high() and low() member functions
+that return the maximum and minimum legal index for a given array.
+ The IntArray class should also contain a private data member that will
+hold the name of the IntArray object when instantiated. This data member
+should be initialized with a call to a setName() member function.
+I will supply a driver program, iadrv.cpp, that demonstrates the use of the
+IntArray class. The driver will demonstrate all operation and error condition
+features separately. Each test will note what feature is being demonstrated and
+output each array name, index, and corresponding element using the overloaded <<
+operator. Note that for each array test data, the driver will simply multiply the
+array index by 10 immediately after each array is initialized or modified and output
+its contents. When your program encounters a run-time error, you should "simulate"
+a halt with appropriate diagnostics rather than actually halting the program. When
+elements of an array are output, the array name should be output, a left bracket, an
+index value, a right bracket, an equal sign, and finally a value: a[3] = 30. Note that
+the driver program outputs array elements vertically down the page. This behavior
+should not be changed. The driver program will include the following tests:
+1. Test array declared with single integer:
+IntArray a(10);
+2. Test array declared with two integers, one of which is negative:
+IntArray b(-3, 6);
+3. Test array declared with two non-negative integers:
+IntArray c(6, 8);
+4. Test array declared with two identical integers:
+IntArray d(5, 5);
+5. Test array declared with no integers:
+IntArray z;
+6. Test array declared with another object of type IntArray:
+IntArray c(6, 8);
+IntArray e(c);
+7. Test array assigned to another array with different indices:
+IntArray f(1, 4);
+IntArray g(5, 8);
+f = g;
+8. Test multiple array assignment with different indices:
+IntArray j(3, 6);
+IntArray k(6, 9);
+IntArray l(1, 4);
+j = k = l;
+9. Test overloaded equality operator (identical elements):
+IntArray m(3, 7);
+IntArray n(3, 7);
+m == n
+10. Test overloaded equality operator (different elements):
+IntArray o(3, 7);
+IntArray p(1, 5);
+o == p
+11. Test overloaded equality operator (different size arrays):
+IntArray q(1, 3);
+IntArray r(1, 4);
+q == r
+12. Test overloaded inequality operator (identical elements):
+IntArray s(3, 7);
+IntArray t(3, 7);
+s != t
+13. Test overloaded inequality operator (different elements):
+IntArray u(3, 7);
+IntArray v(1, 5);
+u != v
+14. Test overloaded inequality operator (different size arrays):
+IntArray w(1, 3);
+IntArray x(1, 4);
+w != x
+15. Test sum of two arrays assigned to third array (note that corresponding array
+elements get added to each other and assigned to the corresponding element in the
+third array):
+IntArray a(1, 5);
+IntArray b(4, 8);
+IntArray c = a+b;
+16. Test sum of two arrays assigned to first array (note that corresponding array
+elements get added to each other and assigned to the corresponding element in the
+first array):
+IntArray d(10,13);
+IntArray e(30,33);
+d += e;
+17. Test array declared with illegal array bounds:
+IntArray f(5, 2);
+18. Test array for index out of range:
+IntArray g(10);
+num = g[10];
+19. Test arrays for length mismatch:
+IntArray m(1, 4);
+IntArray n(3, 7);
+m = n;
+20. Test array subscript operator as an lvalue and rvalue:
+IntArray o(7, 8);
+o[7] = 25;
+o[8] = o[7];
