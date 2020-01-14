@@ -1,0 +1,70 @@
+Program 6: Scheme
+
+This file p6.scm file (also available on Blackboard) already defines some lists with which you can experiment; all
+you need to do is add the definitions of four functions:
+ odds
+ evenrev
+ penultimate
+ palindrome
+Each of these functions should take exactly one parameter: the parameter must be a list. If your function was
+given the wrong number of parameters, we will let the interpreter complain about it. However, if the function is
+given the wrong type of parameter (i.e., not a list), the function should return a friendly error message (including
+a newline). Beginning with “USAGE: “ followed by an indication of the correct invocation. For example,
+“USAGE: (palindrome {list}”
+Function definitions
+ODDS:
+(odds lst)
+should return a new list, formed from the odd-numbered elements taken from lst. That is,
+(odds '(a b c d e f g))
+should return:
+(a c e g)
+(odds (list 's 't 'u 'v 'w 'x 'y 'z))
+should return:
+(s u w y)
+(odds '((a b) c (d e d) c (b a)))
+should return:
+((a b) (d e d) (b a))
+(odds '())
+should return the empty list, etc.
+EVENREV:
+(evenrev lst)
+should return a new list, formed from the even-numbered elements taken from lst but in the reverse of their
+original order. That is,
+(evenrev '(a b c d e f g))
+should return:
+(f d b)
+(evenrev (list 's 't 'u 'v 'w 'x 'y 'z))
+should return:
+(z x v t)
+(evenrev '((h i) (j k) l (m n)))
+should return:
+((m n) (j k))
+Both(evenrev '()) and (evenrev '(a))
+should return the empty list, etc.
+PENULTIMATE:
+(penultimate lst)
+should return a one-element list consisting of jus the next-to-last item of lst, [or return the empty list if there
+were fewer than two elements in lst . That is,
+(penultimate '(a b c d e))
+should return:
+(d)
+(penultimate '(a))
+should return the empty string.
+PALINDROME:
+(palindrome lst)
+should return #t if the list lst is a palindrome, and return #f otherwise. A “palindrome” is something that
+reads the same backwards and forwards. That is,
+(palindrome '(s t u v w x y z))
+should return:
+#f
+(palindrome (LIST 'j 'k 'l 'm 'l 'k 'j))
+should return:
+#t
+Both(palindrome '()) and (palindrome '(a))
+should return #t
+You can receive full credit for your palindrome function as long as it works for all list that are made up entirely of
+atoms. If you choose to take it further, you can try to get it to behave correctly for complex lists such as:
+(palindrome '((h i) j (k l k) j (h i)))
+(palindrome '((y z) y))
+You do not need to worry about what palindrome should do with things that are not single characters like this:
+(palindrome '(abc))
